@@ -3,10 +3,12 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const foodRoutes = require('./routes/foodRoutes');
 
+require('dotenv').config();
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-mongoose.connect('mongodb+srv://LauraLacerda:I0oPJySYllNB2BFv@lauraseixas.ka3ryrj.mongodb.net', {
+mongoose.connect(process.env.MONGODB_URI, {
     retryWrites: true,
     w: 'majority',
     appName: 'LauraSeixas'
